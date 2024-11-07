@@ -2,12 +2,22 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogoYoutube } from "react-icons/io";
 import { GiPlagueDoctorProfile } from "react-icons/gi";
 import { IoIosSearch } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { showSidebar } from "../redux/navbarSlice";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+
+  const toggleSidebar = () => {
+    dispatch(showSidebar());
+  };
   return (
     <nav className="grid grid-flow-col p-2 h-[4.5rem]">
       <div className="flex col-span-1 justify-start items-center">
-        <GiHamburgerMenu className="mx-2 text-xl cursor-pointer" />
+        <GiHamburgerMenu
+          className="mx-2 text-xl cursor-pointer"
+          onClick={toggleSidebar}
+        />
         <h1 className="flex justify-center items-center text-xl font-bold cursor-pointer">
           <IoLogoYoutube className="text-red-600 text-2xl mr-1 ml-2" />
           Youtube
