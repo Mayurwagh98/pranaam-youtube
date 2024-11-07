@@ -1,11 +1,13 @@
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
+import VideoContainer from "../components/VideoContainer";
 
-const Home = () => {
+const Body = () => {
   return (
-    <>
-      <Navbar />
-    </>
+    <div className="flex">
+      <Sidebar />
+      <VideoContainer />
+    </div>
   );
 };
 
-export default Home;
+export default Body;

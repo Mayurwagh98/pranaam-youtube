@@ -5,7 +5,7 @@ import { IoIosSearch } from "react-icons/io";
 
 const Navbar = () => {
   return (
-    <nav className="grid grid-flow-col p-2 h-[4.5rem] shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]">
+    <nav className="grid grid-flow-col p-2 h-[4.5rem]">
       <div className="flex col-span-1 justify-start items-center">
         <GiHamburgerMenu className="mx-2 text-xl cursor-pointer" />
         <h1 className="flex justify-center items-center text-xl font-bold cursor-pointer">
