@@ -7,7 +7,7 @@ const Sidebar = () => {
   if (!sidebarFlag) return;
 
   return (
-    <div className="p-5 w-48 h-screen fixed">
+    <div className="p-5 w-48 h-screen">
       <ul>
         <li>
           <Link to="/">Home</Link>
