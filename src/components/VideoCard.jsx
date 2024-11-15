@@ -29,7 +29,7 @@ const VideoCard = ({ info }) => {
   };
 
   return (
-    <div className="p-3 shadow-lg w-[100%] rounded-lg m-2 mb-4">
+    <div className="p-3 w-[100%] rounded-lg m-2 mb-4">
       <img
         src={info?.snippet?.thumbnails?.medium?.url}
         alt="poster"
