@@ -29,7 +29,7 @@ const VideoCard = ({ info }) => {
   };
 
   return (
-    <div className="p-3 shadow-lg w-[28%] rounded-lg m-2 mb-4">
+    <div className="p-3 shadow-lg w-[100%] rounded-lg m-2 mb-4">
       <img
         src={info?.snippet?.thumbnails?.medium?.url}
         alt="poster"
@@ -43,7 +43,7 @@ const VideoCard = ({ info }) => {
         />
         <div>
           <h3 className="text-sm font-bold">{info?.snippet?.title}</h3>
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-[0.7rem]">
             {info?.snippet?.channelTitle} <span> . </span>
             {info?.statistics?.viewCount} views <span> . </span>
             {getTimeAgo(info?.snippet?.publishedAt)}
