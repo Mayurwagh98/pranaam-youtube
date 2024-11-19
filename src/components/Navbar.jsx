@@ -2,24 +2,33 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { IoLogoYoutube } from "react-icons/io";
 import { GiPlagueDoctorProfile } from "react-icons/gi";
 import { IoIosSearch } from "react-icons/io";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { showSidebar } from "../redux/navbarSlice";
 import { useEffect, useState } from "react";
 import { SUGGESSTIONS_API } from "../utils/constants";
 import { CiSearch } from "react-icons/ci";
+import { storeSearchedResults } from "../redux/cacheSlice";
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = useState("");
   const [suggesstions, setSuggesstions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const storedSearched = useSelector((store) => store.searchedCache);
+  console.log(storedSearched);
 
   const toggleSidebar = () => {
     dispatch(showSidebar());
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => getYoutubeSuggestions(), 200);
+    const timer = setTimeout(() => {
+      if (storedSearched[searchQuery]) {
+        setSuggesstions(suggesstions);
+      } else {
+        getYoutubeSuggestions();
+      }
+    }, 200);
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
@@ -28,6 +37,11 @@ const Navbar = () => {
       const data = await fetch(SUGGESSTIONS_API + searchQuery);
       const newData = await data.json();
       setSuggesstions(newData[1]);
+      dispatch(
+        storeSearchedResults({
+          [searchQuery]: newData[1],
+        }),
+      );
     } catch (error) {
       console.log(error);
     }
