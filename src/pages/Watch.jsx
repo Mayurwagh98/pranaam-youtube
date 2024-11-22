@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeSider } from "../redux/navbarSlice";
 import { useSearchParams } from "react-router-dom";
+import CommentsContainer from "../components/CommentsContainer";
 
 const Watch = () => {
   const [searchParams] = useSearchParams();
@@ -19,6 +20,7 @@ const Watch = () => {
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         className="rounded-lg"
       ></iframe>
+      <CommentsContainer />
     </div>
   );
 };
