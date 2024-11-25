@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import CommentsContainer from "../components/CommentsContainer";
 import ChatList from "../components/ChatContainer";
 import { addMessage } from "../redux/chatSlice";
-import { generateRandomName, generateRandomText } from "../utils/helper";
+import { generateRandomMessage, generateRandomName } from "../utils/helper";
 
 const Watch = () => {
   const [searchParams] = useSearchParams();
@@ -18,7 +18,7 @@ const Watch = () => {
       dispatch(
         addMessage({
           name: generateRandomName(),
-          comment: generateRandomText(10),
+          comment: generateRandomMessage(),
         }),
       );
     }, 2000);

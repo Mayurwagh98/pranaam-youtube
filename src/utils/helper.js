@@ -178,14 +178,77 @@ export function generateRandomName() {
   return nameList[Math.floor(Math.random() * nameList.length)];
 }
 
-export function generateRandomText(length) {
-  const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let randomText = '';
+// Arrays of message components
+const subjects = [
+  "Success",
+  "Happiness",
+  "Growth",
+  "Learning",
+  "Discipline",
+  "Motivation",
+  "Teamwork",
+  "Creativity",
+  "Mindfulness",
+  "Innovation",
+];
 
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * charset.length);
-    randomText += charset[randomIndex];
-  }
+const verbs = [
+  "comes from",
+  "is driven by",
+  "is achieved through",
+  "depends on",
+  "thrives with",
+  "is fueled by",
+  "is shaped by",
+  "is enhanced by",
+  "requires",
+  "leads to",
+];
 
-  return randomText;
+const objects = [
+  "hard work and dedication.",
+  "a positive mindset.",
+  "collaboration and support.",
+  "clear goals and focus.",
+  "continuous improvement.",
+  "embracing challenges.",
+  "staying consistent.",
+  "thinking outside the box.",
+  "effective communication.",
+  "taking the first step.",
+];
+const emojis = [
+  "💪",
+  "🌟",
+  "🚀",
+  "✨",
+  "🌈",
+  "🔥",
+  "🌱",
+  "📚",
+  "🧠",
+  "❤️",
+  "🤝",
+  "🎯",
+  "🛠️",
+  "🏆",
+  "🔑",
+  "🌍",
+  "⚡",
+  "🎨",
+  "🏋️",
+  "💡",
+];
+
+// Function to generate a random meaningful message
+export function generateRandomMessage() {
+  const randomSubject = subjects[Math.floor(Math.random() * subjects.length)];
+  const randomVerb = verbs[Math.floor(Math.random() * verbs.length)];
+  const randomObject = objects[Math.floor(Math.random() * objects.length)];
+
+  // Add a random emoji before and after the message
+  const randomEmoji1 = emojis[Math.floor(Math.random() * emojis.length)];
+  const randomEmoji2 = emojis[Math.floor(Math.random() * emojis.length)];
+
+  return `${randomEmoji1} ${randomSubject} ${randomVerb} ${randomObject} ${randomEmoji2}`;
 }
